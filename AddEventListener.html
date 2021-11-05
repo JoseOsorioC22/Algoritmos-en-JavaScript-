@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>EventListener</title>
+</head>
+
+<body>
+
+<button id="miBoton"> saludar </button>
+<input id="campo">
+    <script>
+
+const miBoton = document.getElementById("miBoton"); 
+const campoTxt = document.getElementById("campo") 
+
+const saludar = () =>
+{
+    alert("saludar")
+}
+
+
+const despedirse = () =>
+{
+    alert("Me tengo que ir, bye!")
+}
+
+const seguirEscribiendo = (event) =>
+{
+    console.log(event.data)
+}
+
+
+miBoton.addEventListener("click",saludar); 
+miBoton.addEventListener("click",despedirse); 
+campoTxt.addEventListener("input", seguirEscribiendo)
+
+    </script>
+
+</body>
+
+</html>

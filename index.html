@@ -1,0 +1,670 @@
+<html>
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fundamentos JS</title>
+</head>
+
+
+<body>
+
+    <h1>Fundamentos JS</h1>
+
+    <script>
+/*
+ var  dato = "NADA"; 
+
+  if(1 > 0)
+  {
+     var dato = "JOSE OSORIO"
+  }
+
+  console.log(dato )
+
+  // Constantes
+
+  const a = 1; 
+
+let objeto = 
+{
+  id: 10024,
+  nombre: "Jose Osorio", 
+  edad: 21
+}
+
+console.log(objeto.edad); 
+
+
+PRIMITIVOS: EN LOS TIPOS DE DATOS PRIMITIVOS SE ACCEDE DIRECTAMENTE AL VALOR
+* string
+* number
+* null 
+* boolean
+* undefined 
+
+COMPUESTOS: EN LOS TIPOS DE DATOS COMPUESTOS SE ACCEDE A UNA REFERENCIA DE ESE VALOR 
+
+* objetos = {}
+* clases {}
+* funciones ()
+* arrays []
+
+
+
+const empleado = {
+  id: 12345,
+  Nombre: "Jose Osorio C.",
+  Email: "Jossekarlos10@gmail.com"
+}
+
+empleado.edad = 5; 
+empleado.id = 1002428165
+empleado.Nombre = "Osorio Jose "
+empleado.Email = "jossekarlos10@hotmail.com"
+empleado.añosDeTrabajo = "25 years Old"
+console.log("El empleado es: " , empleado )
+
+// Con los arreglos: 
+
+let arreglo_colores = ["Yellow", "Blue", "Green", "Black"]; 
+arreglo_colores.push("Orange")
+
+
+console.log("Los colores son: " , arreglo_colores )
+
+// CADENAS DE TEXTO
+
+let valor = " Hola a todos menos a tí "; 
+
+console.log("la longitud de la variable " ,  valor.toUpperCase(), "es: " , valor.length ); 
+console.log("la letra O se repite " , valor.includes("lu")); 
+console.log("quitamos los espacios en blanco que hay al rededor del texto:" + valor.trim() )
+console.log("split para separar con un separador: " + valor.split(""))
+console.log("dando vuelta a una cadena " , valor.split("Sol").reverse().join()  );
+
+let primerNombre = "Jose"; 
+let primerApellido = "Osorio"; 
+
+let saludo2 = `Hola, mi nombre es: ${primerNombre} ${primerApellido} `
+
+console.log(saludo2)
+
+
+// NUMBERS
+
+let c = 5.8 ;  
+
+console.log( `El valor de la variable c es: ${c.toFixed(5)}`); 
+
+
+
+// FUNCIONES
+function estoEsUnaFuncion()
+{
+  console.log("uno")
+  console.log("dos")
+  console.log("tres")
+}
+
+// Invocacion de funciones 
+
+
+function funcionQueDevuelveValor()
+{
+  return "La funcion devuelve una cadena de texto"; 
+}
+
+console.log( funcionQueDevuelveValor() ); 
+
+let valorDeFuncion = funcionQueDevuelveValor(); 
+
+console.log(valorDeFuncion); 
+
+function saludar(nombre , apellido )
+{
+  console.log(`Hola, mi nombre es ${nombre} ${apellido}`)
+}
+
+saludar("Jose","Osorio")
+
+
+// Funcion expresada o funcion anonima.
+const FuncionExpresada = function()  {
+  console.log("Esto es una funcion exprasada, es decir, ua funcion que ha sido asignada"
+  , "a una variable, si invocamos a esta funcion antes de la defincion, javascript nos dirá")
+}
+
+FuncionExpresada()
+{
+
+}
+
+
+// ARREGLOS
+
+const a = [1,true, "Jose", ["A","B", "C",["Jose","Carlos", "Osorio"]]];
+console.log(a);
+console.log(a[3][2])
+// ¿Acceder al true del arreglo interno de dicho arreglo a?
+console.log(a[3][3][2]) 
+const c = Array.of("Jose", "Osorio", "Catalan")
+console.log(c)
+const d = Array(100).fill("Ingenieria de Software")
+console.log(d)
+const colors = ["Yellow","Blue", "Red"]
+console.log(colors)
+colors.push("Black")
+console.log(colors)
+//este metodo quita el ultimo valor de el arreglo
+colors.pop()
+console.log(colors)
+
+colors.forEach(function (el,index)
+{
+   console.log(`<li id="${index}">${el}</li>`); 
+});
+
+
+
+
+//OBJETOS
+
+/*
+Dentro de un objeto a las variables se les llama atributos
+y a las funciones se les llama metodos.
+
+
+const jose = 
+{
+ nombre: "Jose",
+ apellido: "Osorio",
+ edad: 35, 
+ pasatiempos:["Programar", "Escuchar musica"],
+ single: true,
+ contacto:
+ {
+  facebook: "Jose Osorio Catalan", 
+  whatsapp: "3008994762"
+ }, 
+ saludar ()
+ {
+    console.log(`Hola sr ${this.nombre} ${this.apellido}`)
+ }
+
+}
+
+console.log(jose); 
+console.log(jose.apellido)
+console.log(jose.pasatiempos)
+console.log(jose.contacto)
+jose.saludar(); 
+
+// Con esto se listan las llaves del objeto 
+console.log(Object.keys(jose))
+// Muestra un array de valores del objeto 
+console.log(Object.values(jose))
+
+// Evalua si un objeto tiene una propiedad. devuelve true si está sino false. 
+console.log(jose.hasOwnProperty("nombre"))
+
+
+= : Asignacion de variable
+== : comparacion de valores, por ejemplo, esto seria true: console.log("7" == 7); 
+=== : comparacion de tipo de datos y de valor (buena práctica)
+
+
+
+let contador = 0; 
+
+for(let  i= 0; i < 10 ;i++)
+{
+    console.log(i); 
+    i++; 
+}
+
+const persona = 
+{
+  nombre: "Jose", 
+  apellido: "Osorio", 
+  edad: 21
+}
+
+// for in: permite recorrer e iterar  propiedades que tenga un objeto
+for (const propiedad in persona) {
+    console.log(`Key: ${propiedad} y valor ${persona.apellido}`); 
+}
+
+let numeros = [1,100,43,99]
+const  personas = 
+[
+  {
+    nombre: "jose",
+    apellido: "osorio",
+    edad: 21
+  } , 
+  {
+    nombre: "juan",
+    apellido: "ortega",
+    edad: 12
+  } , 
+  {
+    nombre: "maria",
+    apellido: "perez",
+    edad: 23
+  }
+]
+// for of: permite recorrer todos los elementos de un objeto
+
+for (const persona of personas) {
+   console.log(`La persona es: ${persona.nombre } y el apellido es: ${persona.apellido}` )
+}
+
+let cadena = "Jose Osorio"; 
+for(const caracter of cadena)
+{
+  console.log(caracter.toUpperCase()); 
+
+}
+
+
+
+
+try {
+  carro 
+} catch (error) {
+  console.log(`error en el try, ERROR: ${error}`)
+}
+
+
+// Mensajes personalizados para un catch 
+try{
+ let numero = "j"; 
+  if(isNaN(numero))
+  {
+    throw new Error("El caracter introducido no es un numero")
+  }
+
+  console.log(`El numero es ${numero}`)
+}catch(error)
+{
+  console.log(`se produjo el siguiente error: ${error}`)
+}
+
+
+const numeros  = [78,15,9,113,3,32,551];
+
+for(let i=0; i< numeros.length; i++ )
+{
+ 
+  if( !(numeros[i] % 2 === 0))
+  {
+    continue; 
+  }
+  console.log(numeros[i]); 
+}
+
+
+
+// DESTRUCTURACIÓN: es una nueva forma de agregar valores a objetos en JS 
+
+ const numeros = [55,404, 1,992]
+
+ const [one,two,three] = numeros; 
+
+console.log(one,two,three); 
+
+
+const persona = 
+{
+  nombre: "jose",
+  apellido: "osorio",
+  edad: 21
+}
+
+let {apellido,nombre,edad} = persona; 
+
+console.log(`La persona se llama ${nombre} ${apellido}  y tiene:  ${edad} años`)
+
+
+let producto = {
+    id: '38469238976',
+    nombre: 'café',
+    precio: 2.50
+};
+
+let { id, nombre, precio : costo } = { id: '38469238976', nombre: 'café', precio: 2.50 };
+
+console.log(nombre, `y el costo es:${costo}`) // imprime 2.50
+
+
+// En caso que el objeto tenga más propiedades que el número de variables 
+// que requerimos crear, podemos guardar el resto de la información en un último
+// parámetro utilizando tres puntos.
+
+
+let producto = {
+    id: '38469238976',
+    nombre: 'café',
+    precio: 2.50
+};
+
+let { nombre, ...rest } = producto;
+
+console.log(nombre) // imrprime café
+console.log(rest) // imprime {id:'38469238976',precio:2.50}
+
+
+
+// ATRIBUTOS LITERALES
+// Es una forma de asignar valores de variables a objetos 
+let nombre = "Gordo", edad = 7; 
+
+const vacunas = [3,2,3] 
+
+const dog = 
+{
+  nombre, 
+  edad,
+  raza: "chihuahua",
+  vacunas,
+  ladrar()
+  {
+    console.log("Guauu Guauu!")
+  }
+}
+console.log(dog)
+dog.ladrar()
+
+
+// PARAMETROS REST Y OPERADOR SPREAD
+
+function sumar(a,b, ... c )
+{
+  let resultado = a + b; 
+
+  c.forEach( function(element)
+  {
+    resultado = resultado + element; 
+  })
+
+  return resultado; 
+}
+
+
+console.log(sumar(1,2,5,5,5,5,5,5,5,5,5,5,5))
+
+// SPREAD OPERATOR O OPERADOR DE PROPAGACION
+const arr1 = [1,2,3,4], arr2 = [5,6,7,8];
+
+const arr3 = [arr1, arr2]
+console.log(arr3)
+
+// pero hacer eso solamente junta los dos arrays, conviertiendo al arr3 en un array de arrays.
+// por lo que para combinar el array1 y el array2 y hacer uno solo podemos utilizar el operador spread
+
+arr4 = [...arr1, ...arr2]
+console.log(arr4) // obtenemos una combinacion 
+
+
+// Arrow functions 
+
+
+const saludar = (nombre, apellido) =>{ console.log(`Hola sr ${nombre} ${apellido}`)}; 
+
+
+saludar("Jose", "Osorio"); 
+
+const numeros = [1,4,2,7]; 
+
+numeros.forEach( (number) =>
+{
+  console.log(number); 
+} )
+
+
+class animal 
+{
+  constructor(nombre,genero)
+  {
+    this.nombre = nombre; 
+    this.genero = genero; 
+  }
+
+  mostrarNombre()
+  {
+    console.log(`el perro se llama ${this.nombre } y es  ${this.genero}`)
+  }
+
+}
+
+class gato extends animal{
+  constructor(nombre, genero, tamaño)
+  {
+    super(nombre,genero);
+    this.tamaño = tamaño; 
+    
+  }
+}
+
+const Gordo = new animal("Gordo", "macho"); 
+
+console.log(Gordo)
+Gordo.mostrarNombre(); 
+
+Gordo
+
+
+
+class animal 
+{
+  constructor(nombre,genero)
+  {
+    this.nombre = nombre; 
+    this.genero = genero; 
+  }
+
+  mostrarNombre()
+  {
+    console.log(`el perro se llama ${this.nombre } y es  ${this.genero}`)
+  }
+
+}
+
+class perro extends animal{
+  constructor(nombre, genero, tamaño, raza )
+  {
+    super(nombre,genero);
+    this.tamaño = tamaño; 
+    this.raza = raza; 
+    
+  }
+
+  get getRaza()
+  {
+    return this.raza; 
+  }
+
+  set setRaza(raza)
+  {
+    this.raza = raza; 
+  }
+
+}
+
+
+let objPerro = new perro("Gordo", "Macho", "35cm", "chihuahua")
+console.log(`la raza del perro es ${objPerro.getRaza}`)
+// utilizamos el metodo set para cambiarle la raza
+objPerro.setRaza =  "callejero";
+// mostramos de nuevo 
+console.log(`la raza del perro es ${objPerro.getRaza}`)
+
+
+// console.clear(); 
+console.error("errorrrrrrr")
+console.warn("advertencia!")
+
+const persona = 
+{
+nombre: "jose",
+apellido: "osorio",
+edad: 21,
+intereses : [  
+  "comida",
+   "caminar", 
+   "hacer ejercicio", 
+   "programar"]
+}
+
+console.table(persona); 
+
+
+
+// EL OBJETO DATE 
+
+let fecha = new Date(); 
+
+console.log(fecha.getDate())
+console.log(fecha.getDay())
+console.log(fecha.getMonth())
+console.log(fecha.getFullYear())
+
+console.log("ahora la hora, minutos, segundos y milisegundos!")
+console.log(fecha.getHours())
+console.log(fecha.getMinutes())
+console.log(fecha.getSeconds())
+console.log(fecha.getMilliseconds())
+
+console.log("con esto mostramos la fecha actual")
+console.log(fecha.toLocaleDateString())
+console.log(fecha.getUTCDate() )
+console.log(Date.now() ) 
+
+let cumpleJose = new Date(2000,07,28); 
+console.log(cumpleJose); 
+
+
+
+// OBJETO MATH 
+
+console.log(Math.PI); 
+
+// Metodo abs: Nos devuelve el valor absoluto de un numero. 
+console.log(Math.abs(5)); 
+
+// Metodo ceil: para redondear un valor a mayor. 
+console.log(Math.ceil(7.9));
+
+// Metodo floor: para dedondear a un valor menor. 
+console.log(Math.floor(7.2)); 
+
+// Metodo Round: permite redondear un valor al mas cercano. 
+console.log(Math.round(7.4)); 
+
+// Metodo sqrt: permite sacar la raiz cuadrada de un numero.
+console.log(Math.sqrt(9));  // tiene que mostrar 3 
+
+// Metodo pow: permite elevar la potencia de un numero (el primer argumento es el numero y el segundo el elevado)
+console.log(Math.pow(2,5)); 
+
+// Metodo random: retorna un valor aleatorio (hay que colocarle el * y el valor maximo) 
+//  console.log(`Valor aleatorio es: ${Math.floor(Math.random() * 30) + 5}`)
+
+// console.log(Math.floor(Math.random() * 100))
+
+console.log("VAMOS LINEA POR LINEA")
+
+const  aleatorio = (inferior, superior) =>  {
+  console.log(`INFERIOR ES IGUAL A: ${inferior} y SUPERIOR ${superior}`)
+   let  numPosibilidades = superior - inferior;
+
+   console.log(`NUMERO DE POSIBILIDADES ES: ${numPosibilidades} `)
+
+
+    let aleatorio = Math.random() ;
+
+    console.log(`math random es ${aleatorio}`)
+
+    aleatorio = aleatorio  * (numPosibilidades + 1);
+
+
+
+    console.log(`Que esto es igual:  ${aleatorio}`)
+    aleatorio = Math.floor(aleatorio);
+    console.log(`Lo redondea a: ${aleatorio}`)
+    console.log(`El aleatorio es: ${aleatorio + inferior}`)
+    return inferior + aleatorio;
+}
+
+aleatorio(4, 12); 
+
+
+
+let [primernombre, apellido] = ["2jdjdjdj", "hdwbfhubv"]
+console.log(primernombre, apellido)
+
+
+// EL OPERADOR DEL CORTO CIRCUITO : funciona cuando existen dos condiciones 
+// funciona con el Or y con el and, pero 
+// con el or: cuando el valor de la izquierda en la expresion siempre pueda validar a true
+// el valor que se cargará por defecto 
+// mientras que con el and, cuando el valor de la izquierda en la expresion siempre 
+//pueda  a validar a false, es el valor que se cargara por defecto. 
+
+
+// ALERT, CONFIRM, PROMPT 
+
+let alerta = alert("Mostrando!")
+let confirmacion = confirm("¿desea? ")
+let aviso = prompt("Hola, esto es un aviso")
+
+console.log(`Aviso es igual a ${aviso}`)
+
+
+// EXPRESIONES REGULARES
+
+// Basicamente es una secuencia de caracteres que conforma un patron de busqueda 
+
+let cadena = "loremp ee ipsum mr, s6r ee developer "
+
+let exRegular = /ee{1,3}/ig; 
+
+// la i en la expresion significa que ignore mayusculas y minusculas 
+// la g en la expresion significa que no se detenga al encontrar una coincidencia y que siga explorando.
+// los corchetes significan rangos de valores por example: [1-9]: si una cadena tiene valores del uno al 9
+// las llaves {} significan rangos de valores, for example: RE{1,5} -> que quiere decir que la cadena contenga
+// ese subString RE se encuentre entre 1 y 5 veces. 
+console.log(exRegular.test(cadena)); 
+// el signo ^[A-Z] por ejemplo actua como principio de la linea pero cuando se encuentra dentro de los 
+// corchetes [^A-Z], por ejemplo actua como negador
+
+
+// FUNCIONES ANONIMAS AUTOEJECUTABLES
+
+(function (){
+
+
+console.log("funcion anonima autoejecutada 1")
+
+})();
+
+
+(function ()
+{
+  console.log("funcion anonima autoejecutada 2")
+})(); 
+*/ 
+
+// Metodo pow: permite elevar la potencia de un numero 
+console.log(Math.pow(2,5)); 
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<h1>Ejercicios, Jose Osorio!</h1>
+
+<input  type="text" id="campoTexto" >
+<input type="submit" id="btnEvaluar" value="Evaluar">
+  
+<script>
+/* 
+// 1. Programa una función que cuente el número de caracteres de una cadena de texto. 
+console.log("Primer ejercicio"); 
+
+const boton = document.getElementById("btnEvaluar"); 
+const CampoTexto = document.getElementById("campoTexto"); 
+
+const cadenaAContar = ( cadena ) => 
+{ 
+   return console.log(`la cantidad de caracteres que posse la cadena de texto es: ${ cadena.length }`); 
+}
+
+
+
+const processingString = () =>
+{
+  let cadena = CampoTexto.value; 
+  try{
+      if(cadena.length === 0 || /^\s+$/.test(cadena) ) 
+      {
+          throw error; 
+      } 
+      cadenaAContar(cadena.trim() );  
+  } catch(err)
+  {
+    console.error("La cadena tiene inconsistencias, por favor revise")   
+  }
+}
+
+boton.addEventListener("click", processingString ); 
+
+
+// 2. Programa una función que te devuelva el texto recortado según el número de caracteres indicados.
+console.log("Ejercicio 2"); 
+const devuelveTextoRecortado = (textoARecortar, caracteresIndicados) =>
+{
+  return `el texto recortado es: ${textoARecortar.substr(0,caracteresIndicados)}`
+}
+
+console.log(devuelveTextoRecortado("JoseOsorio",4)); 
+
+// 3. Programa una función que dado que dado un String te devuelva un array separados por cierto caracter
+
+console.log("Ejercicio 3");
+
+const DevuelveArray = (cadena, caracter ) =>
+{
+  return  cadena.split(caracter); 
+}
+
+const ArrayPalabras = DevuelveArray("Jose Osorio Catalan"," "); 
+
+console.log(ArrayPalabras); 
+
+// 4. Programa una función que repita un texto x veces. 
+
+console.log("Ejercicio 4"); 
+const RepetirTexto = (texto, cantidadDeVeces) =>
+{
+  console.log(`Esto se va a repetir ${cantidadDeVeces} veces`)
+    for(let i=0; i < cantidadDeVeces ; i++ )
+    {
+          console.log(texto);
+    }
+}
+
+RepetirTexto("Jose, Desarrollador Java",5); 
+
+
+//5. Programa una función que invierta las palabras de una cadena de texto.
+
+const InvertirPalabra = ( palabra ) =>
+{
+  return palabra.split("").reverse().join("").toUpperCase(); 
+}
+
+console.log(`la palabra es: ${InvertirPalabra("rima")}`); 
+
+
+// 6. Programa una función para contar el numero de veces que se repite una palabra en 
+// un texto largo. 
+
+
+const PalabraEnTextoLargo = ( texto, palabra ) =>
+{
+  let contador = 0; 
+  let i=0; 
+  while(i !== -1 )
+  {
+    i = texto.indexOf(palabra,i); 
+    console.log(`el indice de la cadena encontrada es:  ${i}`)
+    if(i!== -1)
+    { 
+      contador ++; 
+      i++; 
+      console.log(`ahora buscará desde la posicion ${i}`); 
+    }
+  }
+  return contador; 
+}
+
+console.log(`la palabra se repite ${PalabraEnTextoLargo("Hello world, welcome josejose , to the universe. jose ", "jose")} veces`); 
+
+
+
+// 7. Programa una función para saber si una palabra o frase dada es un
+// palindromo(que se lee igual en un sentido que en otro)
+
+const EsPalindromo = ( cadena ) =>
+{
+    let texto = cadena.toLowerCase().replace(/\á/g,"a").
+    replace(/\é/g,"e").replace(/\í/g,"i").replace(/\ó/g,"o").replace(/\ú/g, "u").replace(/\.|;|,/g,"").split(" ").join(""); 
+
+ // console.log(`el texto es: ${texto} y la reversa es: ${texto.split("").reverse().join("")} `)
+    
+    if(texto === texto.split("").reverse().join(""))
+    {
+      return true; 
+    } else{
+      return false; 
+    }
+}
+ 
+
+//EsPalindromo("ííííííóóóóííííííééééééáá"); 
+console.log(EsPalindromo("Sólo dí sol a los ídolos"));  
+
+// 8.Programa una función que elimine cierto patron de caracteres de un texto dado
+
+const EliminaPatronDeCaracteres = (texto,patron) =>
+{
+  let re = new RegExp(patron,"gi")
+  return texto.replace(re, " "); 
+}
+
+// OTRA FORMA
+
+
+const EliminaPatronDeCaracteres = (texto,patron) =>
+{
+  return 'ABABAB'.split('B').join('W'); 
+  // ABABAB -> A,A,A, -> ¿aplicado el método join()? ... Y pasandole W cada que hay una coma, me agrega la letra que paso. 
+  // entonces quedaría así: AWAWAW
+}
+
+
+console.log(`el texto es: xyz1, xyz2,xyz3,Xyz4, el patron es xyz, y la funcion me devuelve el texto:
+ ${EliminaPatronDeCaracteres("el texto es: xyz1, xyz2,xyz3,Xyz4","xyz")}`); 
+
+
+
+
+
+//9. Programa una funcion que obtenga un numero aleatorio entre 501 y 600
+
+
+function aleatorio(minimo,maximo){
+  return Math.round(Math.random() * (maximo - minimo) + minimo);
+}
+
+for(let i=0; i<10; i++)
+{
+  console.log(Math.floor(Math.random() * 50 ) + 40); 
+}
+
+// console.log(`el numero es: ${aleatorio()}`); 
+
+// 10.Programa una funcion que reciba un numero y evalue si es capicua (que se lee igual en un sentido que en otro)
+
+const evaluaCapicua = (numero) =>
+{
+  if(!(isNaN(numero)))
+  {
+    let NumReverse =  numero.toString().split("").reverse().join("");
+    if(NumReverse === numero.toString() )
+    {
+      return true; 
+    }
+  }
+  return false;
+}
+
+console.log(evaluaCapicua(12721)); 
+
+// 11. Programa una funcion para obtener el factorial de un numero. 
+
+const factorial = (numero) =>
+{
+  if(numero === 1)
+  {
+    return 1; 
+  }else{
+    let fac = 1; 
+    for(let i=1; i<=numero; i++)
+    {
+        fac = fac * i; 
+    }
+    return fac; 
+  }
+}
+
+console.log(factorial(78)); 
+
+
+//12. Programa una funcion que determine si un numero es primo (aquel que es divisible por el mismo y por el mismo)
+
+const esPrimo = (numero) =>
+{
+ 
+  let divisible = true; 
+
+     for(let i=2; i<numero; i++)
+     {
+          if(numero % i === 0 )
+          {
+            divisible = false;
+          }
+     }
+
+   return (divisible) ? console.log("Es primo!!") : console.log("No es primo!!")
+
+}
+
+esPrimo(11);  
+
+// 13. Programa una funcion que determine si un numero es par o impar 
+
+const numeroEsParOImpar = (numero) =>
+{
+    ((numero % 2 ===0)) ? console.log("es par!!") : console.log("es impar"); 
+}
+
+numeroEsParOImpar(21); 
+
+// 14. Programa una funcion para convertir grados celsius a farenheit y viceversa
+
+const convertirGrados = (opcion,grados) =>
+{
+  if(opcion==="F")
+  {
+    return ((9/5 * grados ) + 32); 
+  } else if(opcion === "C")
+  {
+    return ((grados - 32) * 5 / 9 )
+  } 
+}
+
+console.log(`Los grados son: ${ Math.floor(("C",45))}`); 
+
+
+// 15. Programa una funcion para convertir numeros de base binaria a decimal y viceversa 
+
+const convertir = (base,numero) =>
+{
+      if(base === "B")
+      {
+        return numero.toString(2); 
+      } else if(base === "D")
+      {
+        return parseInt(numero.toString(), 2); 
+      }
+
+}
+
+console.log(`Convertir el numero 1101000 de binario a decimal ${convertir("D",1101000)}`)
+
+
+
+
+// 16. Programa una funcion que devuelva el monto final despues de aplicarlo a una cantidad dada. 
+
+const MontoFinal = (monto, descuento) =>
+{
+    return (monto -  ((descuento * monto) / 100 ) ); 
+}
+
+console.log(`el monto final, con un descuento de 20% es: ${MontoFinal(1000,20)}`); 
+
+// 17. Programa una funcion que dada una fecha valida determine cuantos años han pasado hasta el
+// dia de hoy. 
+
+const calcularAnios = (fecha = undefined) =>
+{
+   if(fecha === undefined) return console.warn("no ingresaste la fecha."); 
+   if(!(fecha instanceof Date)) return console.warn("el valor que ingresaste no es una fecha valida.")
+
+
+let HoyMenosFecha = new Date().getTime() - fecha.getTime(),
+aniosEnMS = 1000 * 60 *60 * 24 * 365 ,
+aniosHumanos = (HoyMenosFecha / aniosEnMS); 
+
+return (Math.sign(aniosHumanos) === -1 ) ? console.info(`fatan ${Math.abs(Math.floor(aniosHumanos))}
+ años para ${fecha.getFullYear() }`) 
+ : (Math.sign(aniosHumanos) === 1 ) ? console.info(`Han pasado ${Math.floor(aniosHumanos)} años desde ${fecha.getFullYear()}`)
+ : console.info(`No hay diferencia, estamos en el año ${fecha.getFullYear()}`)
+}
+
+calcularAnios(new Date(1937,09,27)); 
+
+
+
+// 18. Programa una funcion que dada una cadena de texto cuente el numero de vocales y consonantes 
+
+const VocalesYConsonates = ( cadena = "" ) =>
+{
+    if(!(cadena === ""))
+    {
+      let vocales = 0 , consonantes = 0;  
+
+
+        consonantes = cadena.toLowerCase().replace(/\ a|e|i|o|u|á|é|í|ó|ú/gi,"").length; 
+        vocales = cadena.toLowerCase().split(" ").join().length - consonantes ; 
+        console.info(`la cadena ${cadena} contiene:  ${consonantes} consonates  y ${vocales} vocales`); 
+    }
+
+}
+
+VocalesYConsonates("pedro")
+
+
+// 19. Programa una funcion que dado un texto valide que sea un nombre correcto
+
+const ValidarNombre = (nombre) =>
+{
+    const regExpresion = /^[A-Za-zÑñáéíóú\s]+$/g.test(nombre); 
+
+    return (regExpresion)
+    ? console.log("el nombre es valido")
+    : console.log("el nombre no es valido"); 
+}
+
+ValidarNombre("Ñose oso"); 
+
+
+
+// 20. Progrma una funcion que valide que un texto sea un email valido. 
+
+const ValidarEmail = (email) =>
+{
+  let  regExpresion = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+  let exp = regExpresion.test(email); 
+ return (exp) 
+  ?  console.info(`correo valido ${regExpresion}`)
+  :  console.warn(`correo invalido ${regExpresion} `)
+
+} 
+
+ValidarEmail("joseosorio@ed.team"); 
+
+
+// 21. Programa una funcion que dado un array numerico devuelva otro array con los numeros 
+// elevados al cuadrado. 
+
+const ArrayNumerico = (arregloNumeros) =>
+{
+      return arregloNumeros.map(ele => ele * ele ); 
+}
+
+console.info(ArrayNumerico([10,29,13,34])); 
+
+
+// 22. Programa una funcion que dado un array devuelva el numero mas alto y el numero mas bajo
+// de dicho array. 
+
+const NumeroAltoYNumeroBajo = (arregloNumeros) =>
+{
+  console.info(arregloNumeros)
+   console.info(`el numero más alto es: ${ Math.max(...arregloNumeros) } y el mas bajo es: ${Math.min(...arregloNumeros)}`)
+}
+
+NumeroAltoYNumeroBajo([24,5,4,9,899,891]); 
+
+
+// 23. Programa una funcion que dado un array de numeros devuelva un objeto con 2 arreglos
+// en el primero almacena los numeros pares y en el segundo los impares 
+
+const NumerosParesEImpares = (arreglo) =>
+{
+      const arregloDeArrays = 
+      {
+        pares: [], 
+        impares: []
+      }
+
+        arreglo.forEach(element => {
+          
+          if((element%2) === 0)
+          {
+            arregloDeArrays.pares.push(element);
+          } else{ arregloDeArrays.impares.push(element)}
+          
+        });
+
+    return arregloDeArrays; 
+}
+
+
+// otra forma de hacerlo mas simplificada. 
+
+const ParesEImpares = (arreglo) =>
+{
+  ObjetoArrays = 
+  {
+    pares: arreglo.filter( numero => numero % 2 === 0 ),
+    impares: arreglo.filter(numero => !(numero % 2 === 0) )
+  }
+}
+
+console.info(NumerosParesEImpares([10,3,22,15,13,4,1,88])); 
+
+
+const ParesEImpares = (arreglo) =>
+{
+  ObjetoArrays = 
+  {
+    pares: arreglo.filter( numero => numero % 2 === 0 ),
+    impares: arreglo.filter(numero => (numero % 2 === 1) )
+  }
+
+  return ObjetoArrays; 
+
+}
+
+console.info(ParesEImpares([10,3,22,15,13,4,1,88]));
+
+
+
+// 24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos,
+ // el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, 
+ // pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }.
+
+
+
+const NumerosAscYDes = (arreglo) =>
+{
+
+const ObjArrayAscYDes = 
+  {
+    ascendente: arreglo.map( el => el).sort(),
+    descendente: arreglo.map(el => el).sort().reverse()
+  }; 
+      return ObjArrayAscYDes; 
+}
+
+ console.log(NumerosAscYDes([8,2,95,9,1,7,2])) ; 
+
+
+
+//25) Programa una función que dado un arreglo de elementos, elimine los duplicados, 
+//pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].
+
+const EliminarDuplicados = (arreglo) =>
+{
+    return arreglo.filter((valor, indice) =>
+    {
+      return arreglo.indexOf(valor) === indice; 
+    }); 
+
+}
+
+console.log(EliminarDuplicados([7,4,7,5,8,4])) ; 
+
+
+
+// 26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
+
+const PromedioDeNumeros = (arreglo) =>
+{
+  const total = arreglo.length; 
+  console.log(total)
+  return console.log(`el promedio es: ${arreglo.reduce((valorAnterior, valorPrevio) => valorAnterior + valorPrevio  ) / total }`)
+}
+
+PromedioDeNumeros([9,8,7,6,5,4,3,2,1,0]); 
+*/
+
+/*
+27) Programa una clase llamada Pelicula.
+
+La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la 
+película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
+  - Todos los datos del objeto son obligatorios.
+  - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 
+     7 restantes números.
+  - Valida que el título no rebase los 100 caracteres.
+  - Valida que el director no rebase los 50 caracteres.
+  - Valida que el año de estreno sea un número entero de 4 dígitos.
+  - Valida que el país o paises sea introducidos en forma de arreglo.
+  - Valida que los géneros sean introducidos en forma de arreglo.
+  - Valida que los géneros introducidos esten dentro de los géneros 
+     aceptados.
+  - Crea un método estático que devuelva los géneros aceptados*.
+  - Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
+    decimal de una posición.
+  - Crea un método que devuelva toda la ficha técnica de la película.
+  - Apartir de un arreglo con la información de 3 películas genera 3 
+    instancias de la clase de forma automatizada e imprime la ficha técnica 
+    de cada película.
+
+* Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, 
+Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, 
+Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
+
+*/ 
+
+
+class Pelicula 
+{
+
+  // Constructor
+  constructor({id, titulo, director, anioEstreno, paises, generos,calificacion})
+  {
+
+    this.id = id; 
+    this.titulo = titulo; 
+    this.director = director; 
+    this.anioEstreno = anioEstreno; 
+    this.paises = paises; 
+    this.generos = generos; 
+    this.calificacion = calificacion; 
+  }
+
+
+  // Getter y Setters 
+  get getId()
+  {
+      return this.id; 
+  }
+
+  set setId( id) 
+  {
+      this.id = id; 
+  }
+
+  get getTitulo()
+  {
+    return this.titulo; 
+  }
+
+  set setTitulo(titulo)
+  {
+    this.titulo = titulo; 
+  }
+
+  get getDirector()
+  {
+     return this.director; 
+  }
+
+  set setDirector(director)
+  {
+    this.director = director; 
+  }
+
+  get getAnioEstreno()
+  {
+    return this.anioEstreno; 
+  }
+
+  set setAnioEstreno(estreno)
+{
+  this.anioEstreno = estreno; 
+}
+
+get getPaises()
+{
+  return this.paises;
+}
+
+set setPaises(paises)
+{
+    this.paises = paises; 
+}
+
+get getGenero()
+{
+  return this.generos; 
+}
+
+set setGeneros(generos)
+{
+  this.generos = generos; 
+}
+
+get getCalificacion()
+{
+  return this.calificacion = calificacion; 
+}
+
+set setCalificacion(calificacion)
+{
+  this.calificacion = calificacion; 
+}
+
+
+validarCadena(propiedad, valor) 
+{
+
+  if(!valor)
+  { 
+    return console.warn(`la propiedad ${propiedad} esta vacia`)
+  } 
+  else if(typeof valor !== "string" )
+    {
+      return console.warn(`el valor en la propiedad ${propiedad} no es una cadena`)
+    }
+  
+  return true; 
+}
+
+
+IdisFormatedIMDB(id)
+{
+  /* esta expresion permite validar que en los dos primeros caracteres se ingresen 
+ letras y en los 7 restantes numeros.
+ entre estos: 1. el signo ^ determina que no puede haber nada antes.
+ 2. los parentesis para encerrar el rango y anidarlo junto con las llaves. 
+ 3. las llaves los caracteres, en ese caso los primeros son los dos. 
+ la expresion valida a true pero lo que se hace es una negacion. 
+ */
+// Tenemos que llamar a los metodos dentro de la clase con this, así hacemos referncia al scope actual (el de la clase). 
+
+ if(this.validarCadena("ID", id))
+ {
+  if(!(/^([a-z A-Z]){2}([1-9]){7}$/).test(id))
+  {
+    console.warn(`El id ingresado debe contener una letra los dos primeros carateres y el resto numeros!`); 
+  }
+ }
+
+}
+
+// Validar longitud cadena 
+
+validarLongitud(propiedad, cadena, longitud)
+{
+    if(cadena.length > longitud)
+    {
+     console.warn(`la propiedad ${propiedad} no puede tener una longitud mayor a ${longitud}`)
+    }
+}
+
+ValidarTitulo(titulo)
+{
+  if(this.validarCadena("Titulo",titulo))
+  {
+     this.validarLongitud("titulo",titulo,100)
+  }
+}
+
+ValidarDirector(director)
+{
+  if(this.validarCadena("Director", director))
+  {
+     this.validarLongitud("director",director,50)
+  }
+}
+
+ValidarAnioEstreno(estreno)
+{ 
+ // Esto tambien se podria hacer: Number.parseInt(estreno)) || (estreno.toString().replace(/./gi, "").length > 4
+  if(!(Number.parseInt(estreno)) || (estreno.toString().length > 4 ) )
+  {
+      console.warn(`¡El numero de estreno debe ser un numero entero de cuatro digitos y no puede contener puntos o comas!.`)
+  }
+}
+
+ValidarArreglos(propiedad , arreglo)
+{
+ 
+  if(!(Array.isArray(arreglo) === true ) || (arreglo.length === 0) )
+  {
+      console.warn(`El valor de ${propiedad} no es valido, puede que esté vacio o no sea un arreglo. `); 
+  }
+}
+
+ValidarPaises( paises )
+{
+  this.ValidarArreglos("Paises", paises); 
+}
+
+ValidarGeneros(generos)
+{
+  this.ValidarArreglos("Generos", generos); 
+}
+
+static GenerosAceptados() 
+{
+return  ["Action", "Adult", "Adventure","Animation", "Biography", "Comedy", "Crime", 
+"Documentary" ,"Drama", "Family", "Fantasy", "Film Noir", "Game-Show", "History", "Horror", "Musical", 
+"Music", "Mystery", "News", "Reality-TV", "Romance", "Sci-Fi", "Short", "Sport", "Talk-Show", "Thriller", "War", "Western"]; 
+} 
+
+ValidarGenerosIntroducidos(generosIntroducidos)
+{
+  for (const genero of generosIntroducidos) {
+    if(!(Pelicula.GenerosAceptados().includes(genero)) )
+    {
+      console.warn(`el genero ${genero} no hace parte de los generos aceptados`)
+    }
+  }
+}
+
+FichaMovie()
+{
+  return console.info (`********* Ficha de la pelicula ************* 
+ * Id:  ${this.getId }                                                                               
+ * Titulo: ${this.getTitulo}                                
+ * Director: ${this.getDirector}                               
+ * Año de estreno: ${this.getAnioEstreno}                      
+ * Paises que la conforman: ${this.getPaises}                      
+ * Generos: ${this.generos}                                      
+  ********************************************************`) ;                    
+}
+
+ValidarCalificacion(calificacion)
+{
+  if(!(Number.parseInt(calificacion)) || ( (calificacion > 10)) || (calificacion < 0) )
+  {
+      console.warn(`La calificacion introducida no es valida el rango es de 0 - 10. Por favor revise.`)
+  }
+}
+
+}
+
+
+
+let peliculaInvierno = new Pelicula({
+
+}
+); 
+
+
+const peliculas = 
+[
+  {
+    id: "Ui7893652",
+  titulo: "Duro de matar",
+  director: "Jose Osorio C",
+  anioEstreno: 2001,
+  paises: ["Colombia", "España", "Estados Unidos"],
+  generos:["Action","Adventure","Thriller"],
+  calificacion: 10
+  },
+  {
+    id: "pp9912310",
+  titulo: "Die Hart",
+  director: "Brouce Willis",
+  anioEstreno: 1989,
+  paises: ["UK", "Estados Unidos"],
+  generos:["Action","Crime"],
+  calificacion: 10
+  },
+  {
+    id: "UY4664679",
+  titulo: "The secont war",
+  director: "Jarry Thompson",
+  anioEstreno: 2010,
+  paises: ["UK", "Estados Unidos", "Corea del sur"],
+  generos:["Action","Crime","History", "Horror"],
+  calificacion: 10 
+  }
+
+] ;
+
+peliculas.forEach((pelicula) =>
+{
+new Pelicula(pelicula).FichaMovie() ; 
+}); 
+
+/*
+peliculaInvierno.IdisFormatedIMDB(peliculaInvierno.id); 
+peliculaInvierno.ValidarTitulo(peliculaInvierno.titulo); 
+peliculaInvierno.ValidarDirector(peliculaInvierno.director);
+peliculaInvierno.ValidarAnioEstreno(peliculaInvierno.anioEstreno); 
+peliculaInvierno.ValidarPaises(peliculaInvierno.paises);
+peliculaInvierno.ValidarGeneros(peliculaInvierno.generos); 
+peliculaInvierno.ValidarGenerosIntroducidos(peliculaInvierno.generos); 
+peliculaInvierno.ValidarCalificacion(peliculaInvierno.calificacion); 
+console.info(`Ficha pelicula ${ peliculaInvierno.FichaMovie()}`)
+
+
+console.info(`los generos aceptados son: `)
+Pelicula.GenerosAceptados().forEach((elemento,index) => 
+  {
+    console.info(elemento); 
+  }); 
+*/ 
+
+
+
+</script>
+
+</body>
+</html>
+
